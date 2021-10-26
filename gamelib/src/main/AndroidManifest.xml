@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nezha.gamelib">
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
+    <application>
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LandSplashActivity"
+            android:screenOrientation="user" />
+        <activity android:name=".activity.WebActivity" />
+    </application>
+
+    <queries>
+        <!-- 指定微信包名-->
+        <package android:name="com.tencent.mm" />
+    </queries>
+</manifest>
