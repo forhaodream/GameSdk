@@ -13,4 +13,6 @@ public class AccountListBean implements Serializable {
     public void setList(List<AutoBean> list) {
         this.list = list;
     }
+
+    private String test;
 }
