@@ -66,10 +66,14 @@
         <entry key="..\:/workplace/NZGameSDK/gamelib/src/main/res/layout/popup_pay.xml" value="0.30585585585585584" />
         <entry key="..\:/workplace/NZGameSDK/gamelib/src/main/res/layout/popup_real.xml" value="0.30585585585585584" />
         <entry key="..\:/workplace/NZGameSDK/gamelib/src/main/res/layout/popup_web.xml" value="0.30585585585585584" />
+        <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_change_land.xml" value="0.3494791666666667" />
+        <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_forgot.xml" value="0.3494791666666667" />
+        <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_forgot_land.xml" value="0.3494791666666667" />
+        <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_personal_center_land.xml" value="0.271286231884058" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Embedded JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -1,12 +1,8 @@
 package com.nezha.gamelib.bean;
 
-public class JiGuangBean {
-
-
-
+public class JPushBean {
     private int code;
     private String msg;
-
 
     private DataBean data;
 

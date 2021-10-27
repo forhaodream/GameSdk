@@ -25,7 +25,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final int REQUEST_PHONE_STATE = 200;
-    private GameSdk gameSdk;
     private Context context;
     private Activity activity;
 
@@ -177,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
      * 退出
      */
     private void exit() {
-
         GameSdk.getInstance().exitLogin(activity, new ExitCallback() {
             @Override
             public void exitSuccess(String s) {

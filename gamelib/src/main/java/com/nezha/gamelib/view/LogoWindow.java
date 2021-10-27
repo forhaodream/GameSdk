@@ -37,9 +37,6 @@ public class LogoWindow {
 
     static Activity mActivity;
     private static int screenHeigh;
-    private static int up_x;
-    private static int event_getRawY;
-    private static int event_getY;
 
     private static LogoWindow mLogowindow;
 
@@ -140,11 +137,8 @@ public class LogoWindow {
 
                 float x;
                 float y;
-
                 private float mTouchX;
                 private float mTouchY;
-
-
                 private float mdownTempX;
                 private float mdownTempY;
                 private long ontouchtime;
@@ -163,23 +157,13 @@ public class LogoWindow {
 
                             mdownTempX = event.getRawX();
                             mdownTempY = event.getRawY();
-
                             ontouchtime = System.currentTimeMillis();
-
-
                             myviewicon.setImageDrawable(mActivity.getResources().getDrawable(R.drawable.icon_float_full));
                             break;
-
                         case MotionEvent.ACTION_MOVE: // 捕获手指触摸移动动作
-
                             updateViewPosition();
-
-                            int distance_x = (int) event.getRawX()
-                                    - (int) mdownTempX;
-                            int distance_y = (int) event.getRawY()
-                                    - (int) mdownTempY;
-
-
+                            int distance_x = (int) event.getRawX() - (int) mdownTempX;
+                            int distance_y = (int) event.getRawY() - (int) mdownTempY;
                             if (Math.abs(distance_x) > 40
                                     && Math.abs(distance_y) > 40) {
 
@@ -189,13 +173,7 @@ public class LogoWindow {
 
                             }
                             break;
-
                         case MotionEvent.ACTION_UP: // 捕获手指触摸离开动作
-
-                            up_x = (int) event.getRawX();
-                            event_getRawY = (int) event.getRawY();
-                            event_getY = (int) event.getY();
-
                             distance_x = (int) event.getRawX() - (int) mdownTempX;
                             distance_y = (int) event.getRawY() - (int) mdownTempY;
                             if (Math.abs(distance_x) <= 40
@@ -263,15 +241,10 @@ public class LogoWindow {
         } else {
             params.y = machSize(600);
         }
-
-
     }
 
     private Point getHeightAndWidth(Activity activity) {
-        int width = activity.getWindowManager().getDefaultDisplay().getWidth();
-        int height = activity.getWindowManager().getDefaultDisplay().getHeight();
-        Point size = new Point(width, height);
-        return size;
+        return new Point(activity.getWindowManager().getDefaultDisplay().getWidth(), activity.getWindowManager().getDefaultDisplay().getHeight());
     }
 
     // 添加

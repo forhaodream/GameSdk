@@ -1,13 +1,8 @@
 package com.nezha.gamelib.bean;
 
 public class PayBean {
-
-
-
     private int code;
     private String msg;
-
-
     private DataBean data;
 
     public int getCode() {

@@ -14,9 +14,7 @@ import okhttp3.Response;
  * desc
  */
 public abstract class NetCallback<T> {
-
     public Type type;
-
 
     static Type getSuperclassTypeParameter(Class<?> subclass) {
         Type superclass = subclass.getGenericSuperclass();

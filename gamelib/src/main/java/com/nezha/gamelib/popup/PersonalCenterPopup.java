@@ -24,6 +24,7 @@ import com.nezha.gamelib.callback.ExitCallback;
 import com.nezha.gamelib.callback.LoginCallback;
 import com.nezha.gamelib.utils.ButtonUtils;
 import com.nezha.gamelib.utils.SpUtil;
+import com.nezha.gamelib.view.LogoWindow;
 
 import androidx.annotation.NonNull;
 
@@ -67,6 +68,7 @@ public class PersonalCenterPopup extends CenterPopupView {
         seleText.setOnClickListener(v -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure)) {
                 exitCallback.exitSuccess("success");
+                LogoWindow.getInstants(activity, callback, exitCallback).Stop();
                 dismiss();
                 //new XPopup.Builder(context).dismissOnBackPressed(false).dismissOnTouchOutside(false).isDestroyOnDismiss(true).autoFocusEditText(false).asCustom(new LoginPopup(context, activity, callback)).show();
             }
