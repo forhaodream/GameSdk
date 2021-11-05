@@ -42,7 +42,7 @@
             android:value="d26d67f38cd1215d25676c4358a73b94" />
         <meta-data
             android:name="app_orient"
-            android:value="1" />
+            android:value="0" />
     </application>
 
 </manifest>

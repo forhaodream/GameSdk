@@ -1,6 +1,5 @@
 package com.nezha.gamelib.app;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.ContentValues;
@@ -13,18 +12,16 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.telephony.TelephonyManager;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.core.BasePopupView;
 import com.lxj.xpopup.interfaces.XPopupCallback;
-import com.nezha.gamelib.activity.LandSplashActivity;
-import com.nezha.gamelib.activity.SplashActivity;
 import com.nezha.gamelib.activity.WebActivity;
 import com.nezha.gamelib.bean.PayBean;
 import com.nezha.gamelib.bean.SearchOrderBean;
@@ -58,8 +55,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.TreeMap;
 
-import androidx.core.app.ActivityCompat;
-
 /**
  * Created by CH
  * on 2021/8/25 16:03
@@ -77,14 +72,18 @@ public class GameSdk implements NZActivity {
     public static String appkey = "";
     public static int appOrient = 0;
     public static String serviceUrl = "https://yzf.qq.com/xv/web/static/chat/index.html?sign=37ef9b97d57357c0744199e61fe2e03750a645b46ae6cd4fd62ff317e5cdda37c9e329c6a23e4405f291d70d4ab41baa2ffbc2ed";
+    private static final String DB_NAME = "mydb";
+    private boolean isShowPop = false;
+    private final long inTime = System.currentTimeMillis() / 1000;
+    private Timer timer;
 
+    private String aaa = "";
     private String trade_id;
     private PayCallback payCallback;
 
     public GameSdk() {
 
     }
-
 
     public static GameSdk getInstance() {
         if (instance == null) {
@@ -110,15 +109,9 @@ public class GameSdk implements NZActivity {
      * @return
      */
     public void anim(Activity activity) {
-//        if (GameSdk.appOrient == 1) {
-//            context.startActivity(new Intent(context, LandSplashActivity.class));
-//        } else {
-//            context.startActivity(new Intent(context, SplashActivity.class));
-//        }
         GameSdk.getInstance().dbFindAll();
         Log.d(TAG, "anim: " + DeviceUtil.getIMIEStatus(activity));
     }
-
 
     public void exitLogin(Activity activity, ExitCallback exitCallback) {
         new XPopup.Builder(activity).asCustom(new ExitPopup(activity, exitCallback)).show();
@@ -132,7 +125,6 @@ public class GameSdk implements NZActivity {
         }
     }
 
-
     /**
      * 登录
      */
@@ -145,7 +137,6 @@ public class GameSdk implements NZActivity {
 //        }
     }
 
-    private static final String DB_NAME = "mydb";
 
     @Override
     public void onCreate(Activity activity, LoginCallback loginCallback, ExitCallback exitCallback) {
@@ -154,9 +145,6 @@ public class GameSdk implements NZActivity {
         dbHelper = new DBHelper(activity, DB_NAME, null, 1);
         db = dbHelper.getWritableDatabase();// 打开数据库
     }
-
-    private PersonalCenterPopup popup;
-    private boolean isShowPop = false;
 
     public void logoClick(Activity activity, LoginCallback loginCallback, ExitCallback exitCallback) {
         if ((int) SpUtil.get(activity, SpUtil.UID, 0) != 0) {
@@ -245,7 +233,6 @@ public class GameSdk implements NZActivity {
         exit(activity);
         SpUtil.put(activity, SpUtil.UID, 0);
     }
-
 
     public void createWxOrder(Context context, Activity activity, String amount, String product_name
             , String attach, String product_id, String role_id, String ext
@@ -370,7 +357,6 @@ public class GameSdk implements NZActivity {
                     JSONObject jsonObject = new JSONObject(json);
                     int code = jsonObject.getInt("code");
                     String msg = jsonObject.getString("msg");
-
                     if (code == 1) {
                         SearchOrderBean bean = new Gson().fromJson(json, SearchOrderBean.class);
                         if (bean.getData().getPay_status() == 0) {
@@ -515,7 +501,6 @@ public class GameSdk implements NZActivity {
         if (timer != null) {
             timer.cancel();
             timer = null;
-
         }
         timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -525,9 +510,6 @@ public class GameSdk implements NZActivity {
             }
         }, 1000 * 60 * 5);
     }
-
-    private final long inTime = System.currentTimeMillis() / 1000;
-    Timer timer;
 
     public void heartbeat(Activity activity) {
         String idfa = DeviceUtil.getDeviceId(activity);
@@ -584,7 +566,6 @@ public class GameSdk implements NZActivity {
         builder.append(historyPhone);
         Log.d("ListDataSave", builder.toString());
         SpUtil.put(activity, SpUtil.PHONE, builder.toString());
-
     }
 
     private DBHelper dbHelper;
@@ -647,7 +628,6 @@ public class GameSdk implements NZActivity {
         GameSdk.appId = String.valueOf(info.metaData.getInt("app_id"));
         GameSdk.appkey = info.metaData.getString("app_key");
         GameSdk.appOrient = info.metaData.getInt("app_orient");
-
     }
 
     public void exit(Activity activity) {

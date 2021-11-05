@@ -154,20 +154,14 @@ public class MainActivity extends AppCompatActivity {
                 , "角色id", "附加信息", new PayCallback() {
                     @Override
                     public void paySuccess(String s) {
-                        Log.d(TAG, "paySuccess:  " + s);
-                        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
-
                     }
 
                     @Override
                     public void payFailed(String s) {
-                        Log.d(TAG, "payFailed:  " + s);
-                        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void payCancel(String s) {
-                        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
                     }
                 });
     }

@@ -7,6 +7,7 @@ import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.os.Handler;
 import android.os.Message;
+import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -15,6 +16,7 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 
@@ -58,10 +60,11 @@ public class LogoWindow {
         createView();
     }
 
+
+    @SuppressLint("HandlerLeak")
     public static Handler mhandler = new Handler() {
         @Override
         public void dispatchMessage(Message msg) {
-            // TODO Auto-generated method stub
             super.dispatchMessage(msg);
             switch (msg.what) {
                 case 1:
@@ -111,7 +114,6 @@ public class LogoWindow {
         screenHeigh = dm.heightPixels;
         wm = ((WindowManager) mActivity.getSystemService("window"));
         if (myview == null) {
-
             myview = new RelativeLayout(mActivity);
             LayoutParams layoutParams = new LayoutParams(-2,
                     machSize(100));

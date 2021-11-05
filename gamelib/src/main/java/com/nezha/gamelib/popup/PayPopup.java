@@ -36,7 +36,7 @@ import androidx.annotation.NonNull;
  * on 2021/8/26 09:23
  * desc
  */
-public class PayPopup extends CenterPopupView {
+public final class PayPopup extends CenterPopupView {
     private static final String TAG = PayPopup.class.getSimpleName();
 
     private final Context context;

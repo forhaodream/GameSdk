@@ -117,7 +117,6 @@ public class ChangePopup extends CenterPopupView {
                     e.printStackTrace();
                 }
             }
-
             @Override
             public void onFailure(String msg) {
                 activity.runOnUiThread(() -> {
