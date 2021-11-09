@@ -278,7 +278,7 @@ public class LogoWindow {
      * 将720像素转成其他像素值
      */
     private static int machSize(int size) {
-        return DisplayUtils.dealWihtSize(size, mActivity);
+        return DisplayUtils.dealWithSize(size, mActivity);
     }
 
 

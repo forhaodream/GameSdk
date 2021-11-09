@@ -8,7 +8,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.nezha.gamelib.app.GameSdk;
 import com.nezha.gamelib.bean.AutoBean;
@@ -37,32 +36,32 @@ public class MainActivity extends AppCompatActivity {
         initView();
         GameSdk.getInstance().init(activity);
         GameSdk.getInstance().onCreate(activity, new LoginCallback() {
-                    @Override
-                    public void loginSuccess(AutoBean bean, String msg) {
+            @Override
+            public void loginSuccess(AutoBean bean, String msg) {
 
-                    }
+            }
 
-                    @Override
-                    public void loginFailed(String msg) {
+            @Override
+            public void loginFailed(String msg) {
 
-                    }
+            }
 
-                    @Override
-                    public void logOut(String s) {
+            @Override
+            public void logOut(String s) {
 
-                    }
-                },
-                new ExitCallback() {
-                    @Override
-                    public void exitSuccess(String s) {
-                        Log.d(TAG, s);
-                    }
+            }
+        }, new ExitCallback() {
+            @Override
+            public void exitSuccess(String s) {
+                Log.d(TAG, s);
+            }
 
-                    @Override
-                    public void exitCancel(String s) {
+            @Override
+            public void exitCancel(String s) {
 
-                    }
-                });
+            }
+        });
+
 
         GameSdk.getInstance().onStart(activity);
         GameSdk.getInstance().onStop(activity);
@@ -117,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     private void anim() {
 //        GameSdk.getInstance().anim(context);
 //        GameSdk.getInstance().heartbeat(this);
-        GameSdk.getInstance().replacePhone(activity,"11111111111");
+        GameSdk.getInstance().replacePhone(activity, "11111111111");
     }
 
     /**
@@ -126,22 +125,11 @@ public class MainActivity extends AppCompatActivity {
     private void login() {
         GameSdk.getInstance().login(activity, new LoginCallback() {
             @Override
-            public void loginSuccess(AutoBean bean, String msg) {
-                Log.d(TAG, "loginSuccess: " + bean.getData().getFc_uid());
-                Log.d(TAG, "loginSuccess: " + bean.getData().getUid());
-            }
-
+            public void loginSuccess(AutoBean bean, String msg) {}
             @Override
-            public void loginFailed(String msg) {
-                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-            }
-
+            public void loginFailed(String msg) {}
             @Override
-            public void logOut(String s) {
-                Log.d(TAG, "logOut: ." + s);
-            }
-
-
+            public void logOut(String s) {}
         });
     }
 
@@ -149,21 +137,16 @@ public class MainActivity extends AppCompatActivity {
      * 支付
      */
     private void pay() {
-        GameSdk.getInstance().pay(activity, "1200", "订单id"
+        GameSdk.getInstance().pay(activity, "单位:分", "订单id"
                 , "产品名称", "产品id"
                 , "角色id", "附加信息", new PayCallback() {
                     @Override
-                    public void paySuccess(String s) {
-                    }
-
+                    public void paySuccess(String s) {}
                     @Override
-                    public void payFailed(String s) {
-                    }
-
+                    public void payFailed(String s) {}
                     @Override
-                    public void payCancel(String s) {
-                    }
-                });
+                    public void payCancel(String s) {}
+        });
     }
 
     /**
@@ -172,12 +155,9 @@ public class MainActivity extends AppCompatActivity {
     private void exit() {
         GameSdk.getInstance().exitLogin(activity, new ExitCallback() {
             @Override
-            public void exitSuccess(String s) {
-            }
-
+            public void exitSuccess(String s) {}
             @Override
-            public void exitCancel(String s) {
-            }
+            public void exitCancel(String s) {}
         });
 
     }
@@ -191,26 +171,14 @@ public class MainActivity extends AppCompatActivity {
          * &power=541&role_id=288249067849419358&role_name=龙梓豪
          * &server_id=0&server_name=&t=1631954526&uid=28327522bdda5bc1c2266edf37f4f227edf37a
          */
-        GameSdk.getInstance().report("龙梓豪", "288249067849419358", "",
-                "0", "0", "0", "541", "31"
+        GameSdk.getInstance().report("role_name", "role_id", "server_name",
+                "server_id", "diamonds", "online", "power", "level"
                 , activity, new ReportCallback() {
                     @Override
-                    public void reportSuccess(String msg) {
-                        activity.runOnUiThread(() -> {
-                            Log.d(TAG, msg);
-                            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-                        });
-
-                    }
-
+                    public void reportSuccess(String msg) {}
                     @Override
-                    public void reportFailed(String msg) {
-                        activity.runOnUiThread(() -> {
-                            Log.d(TAG, msg);
-                            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-                        });
-                    }
-                });
+                    public void reportFailed(String msg) {}
+        });
     }
 
 

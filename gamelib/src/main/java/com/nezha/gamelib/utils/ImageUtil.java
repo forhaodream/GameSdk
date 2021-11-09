@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -50,13 +49,9 @@ public class ImageUtil {
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(filePath);
-            if (fos != null) {
-                fingerprint_bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-            }
+            fingerprint_bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
             fos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

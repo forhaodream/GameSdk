@@ -25,7 +25,7 @@ public class Urls {
     public static final String BASE_REFERER_URL = BASE_URL;
 
     //v1 v5
-    public static final String POST_MOBILE = BASE_URL + "/v5/user/mobile";//手机验证码注册或登录或忘记密码-2M
-    public static final String POST_LOGIN = BASE_URL + "/v5/user/login";//账户密码登录
-    public static final String POST_AUTO = BASE_URL + "/v5/user/auto";//自动注册/登录 新增字段has_idfa_auth-2M
+    public static final String POST_MOBILE = BASE_URL + "/v1/user/mobile";//手机验证码注册或登录或忘记密码-2M
+    public static final String POST_LOGIN = BASE_URL + "/v1/user/login";//账户密码登录
+    public static final String POST_AUTO = BASE_URL + "/v1/user/auto";//自动注册/登录 新增字段has_idfa_auth-2M
 }

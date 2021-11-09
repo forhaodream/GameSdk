@@ -3,19 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.nezha.nzgamesdk">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission
-        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
-        tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<!--    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />-->
-
-
-    android:screenOrientation="nosensor"
-    android:screenOrientation="portrait"
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,13 +23,25 @@
 
         <meta-data
             android:name="app_id"
-            android:value="30" />
+            android:value="22" />
         <meta-data
             android:name="app_key"
-            android:value="d26d67f38cd1215d25676c4358a73b94" />
+            android:value="2f77a7343b5e6579c64e6adf09516cb2" />
         <meta-data
             android:name="app_orient"
-            android:value="0" />
+            android:value="1" />
+
     </application>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+    android:screenOrientation="nosensor"
+    android:screenOrientation="portrait"
 
 </manifest>

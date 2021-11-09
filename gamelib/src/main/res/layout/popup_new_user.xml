@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="12dp">
 
         <ImageView
             android:id="@+id/image_back"
@@ -38,6 +38,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
+        android:textSize="15sp"
         android:layout_marginEnd="16dp"
         android:background="@mipmap/bind_bg"
         android:hint="请输入手机号"
@@ -54,6 +55,7 @@
         android:layout_marginEnd="16dp">
 
         <EditText
+            android:textSize="15sp"
             android:id="@+id/edit_code"
             android:layout_width="match_parent"
             android:layout_height="50dp"

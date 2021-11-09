@@ -131,8 +131,6 @@ public class LoggingInPopup extends BasePopupView {
                 System.out.print("autoRegister onSuccess");
                 try {
                     JSONObject jsonObject = new JSONObject(json);
-                    Log.d(TAG, "onSuccess: " + object.toString());
-                    Log.d(TAG, "onSuccess: " + jsonObject.toString());
                     int code = jsonObject.getInt("code");
                     String msg = jsonObject.getString("msg");
                     if (code == 1) {
@@ -172,13 +170,13 @@ public class LoggingInPopup extends BasePopupView {
                                 activity.runOnUiThread(() -> {
                                     loginCallback.loginSuccess(bean, msg);
                                 });
-                                Log.d("loginPopup", "已绑定身份证");
+                                System.out.println("已绑定身份证");
                             }
                         } else {
                             activity.runOnUiThread(() -> {
                                 loginCallback.loginSuccess(bean, msg);
                             });
-                            Log.d("loginPopup", "不需要绑定");
+                            System.out.println("不需要绑定");
                         }
                     } else {
                         activity.runOnUiThread(() -> {
@@ -201,7 +199,6 @@ public class LoggingInPopup extends BasePopupView {
                 System.out.print("autoRegister onFailure");
             }
         });
-//        dismiss();
     }
 
 

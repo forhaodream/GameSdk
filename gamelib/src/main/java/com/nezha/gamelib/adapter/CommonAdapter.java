@@ -18,10 +18,10 @@ import java.util.List;
         private final int mLayoutId;
         private final List<T> data;
 
-        public CommonAdapter(Context mContext, int mLayoutId, List<T> mDatas) {
+        public CommonAdapter(Context mContext, int mLayoutId, List<T> datas) {
             this.mContext = mContext;
             this.mLayoutId = mLayoutId;
-            this.data = mDatas;
+            this.data = datas;
         }
 
         @Override

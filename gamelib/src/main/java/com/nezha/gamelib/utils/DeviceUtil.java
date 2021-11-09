@@ -342,55 +342,16 @@ public class DeviceUtil {
 
             sb.append(k + "=" + v + "&");
             sbkey.append(k + "=" + v + "&");
-//            //空值不传递，不参与签名组串
-//            if (null != v && !"".equals(v)) {
-//                sb.append(k + "=" + v + "&");
-//                sbkey.append(k + "=" + v + "&");
-//            }
         }
-        //System.out.println("字符串:"+sb.toString());
-
         String sbString = sbkey.substring(0, sbkey.length() - 1);
         StringBuffer newSbStr = new StringBuffer();
-
-//        sbkey = sbkey.append("" + key);
         newSbStr.append(sbString).append(key);
-
         System.out.println("字符串:" + newSbStr.toString());
-        //MD5加密,结果转换为小写
         String sign = md5(newSbStr.toString()).toLowerCase();
         System.out.println("MD5加密值:" + sign);
-        Log.i(TAG, newSbStr.toString() + "  sign=" + sign);
         return sign;
-//        return sb.toString() + "  sign=" + sign;
     }
 
-    static final String TAG = "GPaySdk";
-
-    /**
-     * 获取gameid信息
-     *
-     * @param paramContext
-     * @return
-     */
-    public static String getGameInfo(Context paramContext, String name) {
-
-
-        if (name.equals("yayawan_orientation")) {
-            if (DeviceUtil.isLandscape(paramContext)) {
-                return "landscape";
-            } else {
-                return "portrait";
-            }
-        } else {
-            Bundle dataInfo = getMetaDataInfo(paramContext);
-            if (((dataInfo = getMetaDataInfo(paramContext)) == null)
-                    || (dataInfo.get(name) == null)) {
-                throw new IllegalArgumentException("must set the " + name);
-            }
-            return dataInfo.getString(name).replace("string", "");
-        }
-    }
 
     /**
      * 获取横竖屏信息
