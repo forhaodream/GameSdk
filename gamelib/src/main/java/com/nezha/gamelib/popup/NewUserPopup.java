@@ -55,13 +55,9 @@ public class NewUserPopup extends CenterPopupView {
 
     @Override
     protected int getImplLayoutId() {
-        int layout = 0;
-        if (GameSdk.appOrient == 1) {
-            layout = R.layout.popup_new_user_land;
-        } else {
-            layout = R.layout.popup_new_user;
-        }
-        return layout;
+        if (GameSdk.appOrient == 1)
+            return R.layout.popup_new_user_land;
+        return R.layout.popup_new_user;
     }
 
     @Override

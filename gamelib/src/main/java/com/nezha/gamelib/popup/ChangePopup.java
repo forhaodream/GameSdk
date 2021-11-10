@@ -61,13 +61,9 @@ public class ChangePopup extends CenterPopupView {
 
     @Override
     protected int getImplLayoutId() {
-        int layout = 0;
-        if (GameSdk.appOrient == 1) {
-            layout = R.layout.popup_change_land;
-        } else {
-            layout = R.layout.popup_change;
-        }
-        return layout;
+        if (GameSdk.appOrient == 1)
+            return R.layout.popup_change_land;
+        return R.layout.popup_change;
     }
 
 
@@ -117,6 +113,7 @@ public class ChangePopup extends CenterPopupView {
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onFailure(String msg) {
                 activity.runOnUiThread(() -> {

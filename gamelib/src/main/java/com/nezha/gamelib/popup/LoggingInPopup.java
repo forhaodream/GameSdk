@@ -67,24 +67,20 @@ public class LoggingInPopup extends BasePopupView {
             }
         });
         userNameText.setText((String) SpUtil.get(context, SpUtil.NAME, ""));
-        autoRegister(activity, loginCallback);
+        autoRegister(activity);
     }
 
     @Override
     protected int getPopupLayoutId() {
-        int layout = 0;
-        if (GameSdk.appOrient == 1) {
-            layout = R.layout.popup_logging_in_land;
-        } else {
-            layout = R.layout.popup_logging_in;
-        }
-        return layout;
+        if (GameSdk.appOrient == 1)
+            return R.layout.popup_logging_in_land;
+        return R.layout.popup_logging_in;
     }
 
     /**
      * 自动注册
      */
-    public void autoRegister(Activity activity, LoginCallback callback) {
+    public void autoRegister(Activity activity) {
         System.out.print("autoRegister");
         String device = "android";
         String idfa = DeviceUtil.getDeviceId(activity);
@@ -135,9 +131,6 @@ public class LoggingInPopup extends BasePopupView {
                         SpUtil.put(activity, SpUtil.AGE, bean.getData().getAge());
                         SpUtil.saveAccount(activity, bean);
                         GameSdk.getInstance().timer(activity);
-//                        if (!TextUtils.isEmpty(bean.getData().getPasswd()))
-//                            addTextToJpg(bean.getData().getUsername(), bean.getData().getPasswd());
-
                         if (TextUtils.isEmpty(bean.getData().getFc_uid())) {
                             bean.getData().setFc_uid(String.valueOf(bean.getData().getUid()));
                         }
@@ -147,7 +140,7 @@ public class LoggingInPopup extends BasePopupView {
                                 dismiss();
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
-                                }
+                            }
                         });
                         if (bean.getData().getIndulge() == 1) {
                             SpUtil.put(activity, SpUtil.INDULGE, bean.getData().getIndulge());

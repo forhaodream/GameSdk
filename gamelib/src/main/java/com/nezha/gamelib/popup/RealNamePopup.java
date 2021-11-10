@@ -61,13 +61,9 @@ public class RealNamePopup extends CenterPopupView {
 
     @Override
     protected int getImplLayoutId() {
-        int layout = 0;
-        if (GameSdk.appOrient == 1) {
-            layout = R.layout.popup_real_land;
-        } else {
-            layout = R.layout.popup_real;
-        }
-        return layout;
+        if (GameSdk.appOrient == 1)
+            return R.layout.popup_real_land;
+        return R.layout.popup_real;
     }
 
     @Override

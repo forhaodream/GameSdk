@@ -45,13 +45,9 @@ public class ExitPopup extends CenterPopupView {
 
     @Override
     protected int getImplLayoutId() {
-        int layout = 0;
-        if (GameSdk.appOrient == 1) {
-            layout = R.layout.popup_exit_land;
-        } else {
-            layout = R.layout.popup_exit;
-        }
-        return layout;
+        if (GameSdk.appOrient == 1)
+            return R.layout.popup_exit_land;
+        return R.layout.popup_exit;
     }
 
     @Override

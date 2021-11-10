@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +17,7 @@ import com.nezha.gamelib.app.GameSdk;
 import com.nezha.gamelib.network.HttpUtils;
 import com.nezha.gamelib.network.RequestListener;
 import com.nezha.gamelib.network.Urls;
+import com.nezha.gamelib.utils.ButtonUtils;
 import com.nezha.gamelib.utils.DeviceUtil;
 import com.nezha.gamelib.utils.SpUtil;
 
@@ -42,7 +42,6 @@ public class ChangePhonePopup extends CenterPopupView {
     private EditText editPhone;
     private EditText editCode;
     private EditText editNewCode;
-    private Button btnSure;
     private TextView sendCode, sendCodeNew;
     private final Activity activity;
     private TimeCount time;
@@ -60,13 +59,9 @@ public class ChangePhonePopup extends CenterPopupView {
 
     @Override
     protected int getImplLayoutId() {
-        int layout = 0;
-        if (GameSdk.appOrient == 1) {
-            layout = R.layout.popup_change_bind_land;
-        } else {
-            layout = R.layout.popup_change_bind;
-        }
-        return layout;
+        if (GameSdk.appOrient == 1)
+            return R.layout.popup_change_bind_land;
+        return R.layout.popup_change_bind;
     }
 
     @Override
@@ -75,7 +70,6 @@ public class ChangePhonePopup extends CenterPopupView {
         editPhone = findViewById(R.id.edit_phone);
         editCode = findViewById(R.id.edit_code);
         editNewCode = findViewById(R.id.edit_code_new);
-        btnSure = findViewById(R.id.btn_sure);
         sendCode = findViewById(R.id.text_send_sms);
         sendCodeNew = findViewById(R.id.text_send_sms_new);
         oldPhoneText = findViewById(R.id.old_phone);
@@ -85,15 +79,15 @@ public class ChangePhonePopup extends CenterPopupView {
         findViewById(R.id.image_back).setOnClickListener(view -> {
             dismiss();
         });
-        sendCode.setOnClickListener(view -> {
+        findViewById(R.id.text_send_sms).setOnClickListener(view -> {
             sendSms();
         });
-        sendCodeNew.setOnClickListener(view -> {
+        findViewById(R.id.text_send_sms_new).setOnClickListener(view -> {
             sendSmsNew();
         });
-        btnSure.setOnClickListener(view -> {
-//            if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure))
-            newUser();
+        findViewById(R.id.btn_sure).setOnClickListener(view -> {
+            if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure))
+                newUser();
         });
     }
 
@@ -289,6 +283,7 @@ public class ChangePhonePopup extends CenterPopupView {
             sendCode.setText("验证码(" + millisUntilFinished / 1000 + "s)");
         }
     }
+
     class TimeCountNew extends CountDownTimer {
         public TimeCountNew(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);

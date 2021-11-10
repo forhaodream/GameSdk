@@ -25,9 +25,11 @@ import androidx.annotation.NonNull;
 /**
  * Created by CH
  * on 2021/9/1 16:22
- * desc
+ * desc 个人中心
  */
 public class PersonalCenterPopup extends CenterPopupView {
+
+    private static final String TAG = PersonalCenterPopup.class.getSimpleName();
 
     private final Context context;
     private final Activity activity;
@@ -79,7 +81,7 @@ public class PersonalCenterPopup extends CenterPopupView {
                         Toast.makeText(activity, "此账号已实名!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Log.d("PersonalPopup", "不需要绑定");
+                    Log.d(TAG, "不需要绑定");
                 }
             }
         });
@@ -101,13 +103,9 @@ public class PersonalCenterPopup extends CenterPopupView {
 
     @Override
     protected int getImplLayoutId() {
-        int layout = 0;
-        if (GameSdk.appOrient == 1) {
-            layout = R.layout.popup_personal_center_land;
-        } else {
-            layout = R.layout.popup_personal_center;
-        }
-        return layout;
+        if (GameSdk.appOrient == 1)
+            return R.layout.popup_personal_center_land;
+        return R.layout.popup_personal_center;
     }
 
 
@@ -126,15 +124,11 @@ public class PersonalCenterPopup extends CenterPopupView {
         return super.getPopupAnimator();
     }
 
-
     protected int getPopupWidth() {
         return 0;
     }
 
-
     protected int getPopupHeight() {
         return 0;
     }
-
-
 }

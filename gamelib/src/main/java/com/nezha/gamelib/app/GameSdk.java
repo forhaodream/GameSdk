@@ -15,13 +15,14 @@ import android.net.Uri;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.core.BasePopupView;
 import com.lxj.xpopup.interfaces.XPopupCallback;
+import com.nezha.gamelib.activity.LandSplashActivity;
+import com.nezha.gamelib.activity.SplashActivity;
 import com.nezha.gamelib.activity.WebActivity;
 import com.nezha.gamelib.bean.PayBean;
 import com.nezha.gamelib.bean.SearchOrderBean;
@@ -108,8 +109,11 @@ public class GameSdk implements NZActivity {
      * @return
      */
     public void anim(Activity activity) {
-        GameSdk.getInstance().dbFindAll();
-        Log.d(TAG, "anim: " + DeviceUtil.getIMIEStatus(activity));
+        if (GameSdk.appOrient == 1) {
+            activity.startActivity(new Intent(activity, LandSplashActivity.class));
+        } else {
+            activity.startActivity(new Intent(activity, SplashActivity.class));
+        }
     }
 
     public void exitLogin(Activity activity, ExitCallback exitCallback) {

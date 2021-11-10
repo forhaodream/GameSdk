@@ -115,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
      * 动画
      */
     private void anim() {
-//        GameSdk.getInstance().anim(context);
+        GameSdk.getInstance().anim(activity);
 //        GameSdk.getInstance().heartbeat(this);
 //        GameSdk.getInstance().replacePhone(activity, "11111111111");
-        GameSdk.getInstance().showTip(activity);
+//        GameSdk.getInstance().showTip(activity);
     }
 
     /**

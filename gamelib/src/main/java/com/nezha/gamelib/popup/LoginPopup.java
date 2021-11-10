@@ -91,13 +91,9 @@ public class LoginPopup extends CenterPopupView {
 
     @Override
     protected int getImplLayoutId() {
-        int layout = 0;
-        if (GameSdk.appOrient == 1) {
-            layout = R.layout.popup_login_land;
-        } else {
-            layout = R.layout.popup_login;
-        }
-        return layout;
+        if (GameSdk.appOrient == 1)
+            return R.layout.popup_login_land;
+        return R.layout.popup_login;
     }
 
     private void initView() {

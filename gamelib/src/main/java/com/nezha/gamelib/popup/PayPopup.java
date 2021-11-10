@@ -93,19 +93,14 @@ public final class PayPopup extends CenterPopupView {
             payCallback.payCancel("cancel");
             dismiss();
         });
-
     }
 
 
     @Override
     protected int getImplLayoutId() {
-        int layout = 0;
-        if (GameSdk.appOrient == 1) {
-            layout = R.layout.popup_pay_land;
-        } else {
-            layout = R.layout.popup_pay;
-        }
-        return layout;
+        if (GameSdk.appOrient == 1)
+            return R.layout.popup_pay_land;
+        return R.layout.popup_pay;
     }
 
     @Override

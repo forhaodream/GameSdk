@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,20 +39,13 @@ import static com.nezha.gamelib.utils.DeviceUtil.packageName;
 public class ForgotPopup extends CenterPopupView {
     private static final String TAG = ForgotPopup.class.getSimpleName();
     private final Context context;
-    private RelativeLayout layout;
-    private ImageView backImage;
-
-    private final boolean isVisible = false;
-    private ImageView imageBack;
     private EditText editPhone;
     private EditText editCode;
     private TextView btnSendCode;
     private EditText editPasswd;
-    private Button btnSure;
     private TimeCount time;
     private final Activity activity;
     private TextView contactText;
-    private boolean isOnly = true;
 
 
     public ForgotPopup(@NonNull Context context, Activity activity) {
@@ -67,37 +57,28 @@ public class ForgotPopup extends CenterPopupView {
     @Override
     protected void onCreate() {
         super.onCreate();
-        imageBack = findViewById(R.id.image_back);
         editPhone = findViewById(R.id.edit_phone);
         editCode = findViewById(R.id.edit_code);
-        btnSendCode = findViewById(R.id.btn_send_code);
         editPasswd = findViewById(R.id.edit_passwd);
-        btnSure = findViewById(R.id.btn_sure);
-        backImage = findViewById(R.id.image_back);
         contactText = findViewById(R.id.text_contact);
-        backImage.setOnClickListener(view -> {
+        findViewById(R.id.image_back).setOnClickListener(view -> {
             dismiss();
         });
-        btnSendCode.setOnClickListener(view -> {
+        findViewById(R.id.btn_send_code).setOnClickListener(view -> {
             sendSms();
         });
-        btnSure.setOnClickListener(view -> {
+        findViewById(R.id.btn_sure).setOnClickListener(view -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure)) {
                 findPasswd();
-                isOnly = false;
             }
         });
     }
 
     @Override
     protected int getImplLayoutId() {
-        int layout = 0;
-        if (GameSdk.appOrient == 1) {
-            layout = R.layout.popup_forgot_land;
-        } else {
-            layout = R.layout.popup_forgot;
-        }
-        return layout;
+        if (GameSdk.appOrient == 1)
+            return R.layout.popup_forgot_land;
+        return R.layout.popup_forgot;
     }
 
     private void sendSms() {
