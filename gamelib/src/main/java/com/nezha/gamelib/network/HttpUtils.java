@@ -2,12 +2,6 @@ package com.nezha.gamelib.network;
 
 import android.util.Log;
 
-import com.google.gson.Gson;
-import com.lxj.xpopup.BuildConfig;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -31,12 +25,9 @@ public class HttpUtils {
 
     private HttpUtils() {
         //token拦截器
-        final Interceptor interceptor = new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request request = chain.request().newBuilder().addHeader("token", "werfdwsadfdsaxdfbg").build();
-                return chain.proceed(request);
-            }
+        final Interceptor interceptor = chain -> {
+            Request request = chain.request().newBuilder().addHeader("token", "werfdwsadfdsaxdfbg").build();
+            return chain.proceed(request);
         };
         okHttpClient = new OkHttpClient.Builder()
                 .readTimeout(60, TimeUnit.SECONDS)

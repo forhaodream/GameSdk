@@ -6,13 +6,10 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.WebView;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,18 +29,12 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
-import java.util.TreeMap;
 import java.util.UUID;
 
 import androidx.core.app.ActivityCompat;
 
 public class DeviceUtil {
     private static final String ISLANDSCAPE = "isLandscape";
-
-    public static String getUserAgent(Context context) {
-        String useragent = new WebView(context).getSettings().getUserAgentString();
-        return useragent;
-    }
 
     public static boolean isEmpty(String str) {
         return str == null || str.length() == 0;
@@ -99,16 +90,13 @@ public class DeviceUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         try {
             //获取设备的MACAddress地址 去掉中间相隔的冒号
-            deviceId = getLocalMac(context).replace(":", "");
+            deviceId = getLocalMac().replace(":", "");
             s.append(deviceId);
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        }
-
         //如果以上搜没有获取相应的则自己生成相应的UUID作为相应设备唯一标识符
         if (s.length() <= 0) {
             UUID uuid = UUID.randomUUID();
@@ -135,7 +123,6 @@ public class DeviceUtil {
         }
         return code;
     }
-
 
     /**
      * 读取固定的文件中的内容,这里就是读取sd卡中保存的设备唯一标识符
@@ -171,21 +158,13 @@ public class DeviceUtil {
         return deviceId;
     }
 
-
     /**
      * 获取设备MAC 地址 由于 6.0 以后 WifiManager 得到的 MacAddress得到都是 相同的没有意义的内容
      * 所以采用以下方法获取Mac地址
      *
-     * @param context
      * @return
      */
-    private static String getLocalMac(Context context) {
-//        WifiManager wifi = (WifiManager) context
-//                .getSystemService(Context.WIFI_SERVICE);
-//        WifiInfo info = wifi.getConnectionInfo();
-//        return info.getMacAddress();
-
-
+    private static String getLocalMac() {
         String macAddress = null;
         StringBuffer buf = new StringBuffer();
         NetworkInterface networkInterface = null;
@@ -197,10 +176,7 @@ public class DeviceUtil {
             if (networkInterface == null) {
                 return "";
             }
-            byte[] addr = networkInterface.getHardwareAddress();
-
-
-            for (byte b : addr) {
+            for (byte b : networkInterface.getHardwareAddress()) {
                 buf.append(String.format("%02X:", b));
             }
             if (buf.length() > 0) {
@@ -245,13 +221,9 @@ public class DeviceUtil {
         String md5str = "";
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-
             byte[] input = message.getBytes();
-
             byte[] buff = md.digest(input);
-
             md5str = bytesToHex(buff, upperCase);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -264,7 +236,6 @@ public class DeviceUtil {
         int digital;
         for (int i = 0; i < bytes.length; i++) {
             digital = bytes[i];
-
             if (digital < 0) {
                 digital += 256;
             }
@@ -339,7 +310,6 @@ public class DeviceUtil {
             Map.Entry entry = (Map.Entry) it.next();
             String k = (String) entry.getKey();
             Object v = entry.getValue();
-
             sb.append(k + "=" + v + "&");
             sbkey.append(k + "=" + v + "&");
         }
@@ -360,14 +330,11 @@ public class DeviceUtil {
      * @return
      */
     public static String getOrientation(Context paramContext) {
-
-
         if (DeviceUtil.isLandscape(paramContext)) {
             return "landscape";
         } else {
             return "portrait";
         }
-        //return dataInfo.getString(YAYAWAN_ORIENTATION);
     }
 
     /**

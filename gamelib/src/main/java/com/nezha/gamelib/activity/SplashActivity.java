@@ -3,9 +3,7 @@ package com.nezha.gamelib.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-
 import com.nezha.gamelib.R;
-
 import androidx.annotation.Nullable;
 
 /**

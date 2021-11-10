@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +13,6 @@ import com.lxj.xpopup.core.CenterPopupView;
 import com.lxj.xpopup.util.XPopupUtils;
 import com.nezha.gamelib.R;
 import com.nezha.gamelib.app.GameSdk;
-import com.nezha.gamelib.callback.LoginCallback;
 import com.nezha.gamelib.network.HttpUtils;
 import com.nezha.gamelib.network.RequestListener;
 import com.nezha.gamelib.network.Urls;
@@ -42,24 +38,19 @@ public class NewUserPopup extends CenterPopupView {
     private static final String TAG = NewUserPopup.class.getSimpleName();
 
     private final Context context;
-    private RelativeLayout layout;
 
     private EditText editPhone;
     private EditText editCode;
     private TextView btnSendCode;
     private EditText editPasswd;
-    private Button btnSure;
-    private ImageView backImage;
 
-    private final LoginCallback loginCallback;
     private final Activity activity;
     private TimeCount time;
 
-    public NewUserPopup(@NonNull Context context, Activity activity, LoginCallback callback) {
+    public NewUserPopup(@NonNull Context context, Activity activity) {
         super(context);
         this.context = context;
         this.activity = activity;
-        this.loginCallback = callback;
     }
 
     @Override
@@ -78,20 +69,16 @@ public class NewUserPopup extends CenterPopupView {
         super.onCreate();
         editPhone = findViewById(R.id.edit_phone);
         editCode = findViewById(R.id.edit_code);
-        btnSendCode = findViewById(R.id.btn_send_code);
         editPasswd = findViewById(R.id.edit_passwd);
-        btnSure = findViewById(R.id.btn_sure);
-        backImage = findViewById(R.id.image_back);
-        backImage.setOnClickListener(view -> {
+        findViewById(R.id.image_back).setOnClickListener(view -> {
             dismiss();
         });
-        btnSendCode.setOnClickListener(view -> {
+        findViewById(R.id.btn_send_code).setOnClickListener(view -> {
             sendSms();
         });
-        btnSure.setOnClickListener(view -> {
+        findViewById(R.id.btn_sure).setOnClickListener(view -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure)) {
                 newUser();
-
             }
         });
     }

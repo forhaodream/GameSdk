@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -60,16 +58,10 @@ public class LoginPopup extends CenterPopupView {
 
     private boolean isPhone = false;
     private boolean isPasswd = false;
-
-    private RelativeLayout layout;
-
     private EditText editPhone;
     private ImageView ivPhone;
     private EditText editPasswd;
     private ImageView ivPasswd;
-    private Button btnLogin;
-    private TextView textForgot;
-    private TextView textNewUser;
     private RelativeLayout hideLayout;
     private final LoginCallback loginCallback;
     private final Activity activity;
@@ -80,7 +72,6 @@ public class LoginPopup extends CenterPopupView {
     private Cursor cursor;
     private String phoneStr;
     private String passwdStr;
-    private TextView quickBtn;
     private final Map<String, String> map = new HashMap<>();
     private boolean isOnly = true;
 
@@ -94,8 +85,6 @@ public class LoginPopup extends CenterPopupView {
     @Override
     protected void onCreate() {
         super.onCreate();
-//        ForgotPopup.
-        layout = findViewById(R.id.layout);
         initView();
         addList();
     }
@@ -115,18 +104,14 @@ public class LoginPopup extends CenterPopupView {
         findViewById(R.id.text_forgot).setOnClickListener(view ->
                 new XPopup.Builder(context).popupAnimation(PopupAnimation.TranslateFromLeft).autoFocusEditText(false).asCustom(new ForgotPopup(context, activity)).show());
         findViewById(R.id.text_new_user).setOnClickListener(view ->
-                new XPopup.Builder(context).popupAnimation(PopupAnimation.TranslateFromRight).autoFocusEditText(false).asCustom(new NewUserPopup(context, activity, loginCallback)).show());
+                new XPopup.Builder(context).popupAnimation(PopupAnimation.TranslateFromRight).autoFocusEditText(false).asCustom(new NewUserPopup(context, activity)).show());
         editPhone = findViewById(R.id.edit_phone);
         ivPhone = findViewById(R.id.iv_phone);
         editPasswd = findViewById(R.id.edit_passwd);
         ivPasswd = findViewById(R.id.iv_passwd);
-        btnLogin = findViewById(R.id.btn_login);
-        textForgot = findViewById(R.id.text_forgot);
-        textNewUser = findViewById(R.id.text_new_user);
         hideLayout = findViewById(R.id.layout_hide);
         phoneList = findViewById(R.id.lv_hind);
-        quickBtn = findViewById(R.id.btn_quick);
-        quickBtn.setOnClickListener(v -> {
+        findViewById(R.id.btn_quick).setOnClickListener(v -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_quick)) {
                 dismiss();
                 new XPopup.Builder(activity).isRequestFocus(false).asCustom(new LoggingInPopup(activity, activity, loginCallback)).show();
@@ -156,7 +141,7 @@ public class LoginPopup extends CenterPopupView {
             isPasswd = !isPasswd;
         });
 
-        btnLogin.setOnClickListener(view -> {
+        findViewById(R.id.btn_login).setOnClickListener(view -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_login)) {
                 autoLogin();
             }

@@ -29,7 +29,7 @@
             android:value="2f77a7343b5e6579c64e6adf09516cb2" />
         <meta-data
             android:name="app_orient"
-            android:value="1" />
+            android:value="0" />
 
     </application>
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"

@@ -7,7 +7,6 @@ public class ContactBean {
     private int code;
     private String msg;
 
-
     private List<DataBean> data;
 
     public int getCode() {

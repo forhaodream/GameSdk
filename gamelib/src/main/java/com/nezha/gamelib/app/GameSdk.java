@@ -77,7 +77,6 @@ public class GameSdk implements NZActivity {
     private final long inTime = System.currentTimeMillis() / 1000;
     private Timer timer;
 
-    private String aaa = "";
     private String trade_id;
     private PayCallback payCallback;
 
@@ -556,6 +555,10 @@ public class GameSdk implements NZActivity {
 
             }
         });
+    }
+
+    public void showTip(Activity activity) {
+        new XPopup.Builder(activity).dismissOnBackPressed(false).dismissOnTouchOutside(false).asCustom(new TipPopup(activity, "1111111")).show();
     }
 
     public void savePhone(Activity activity, String phone) {

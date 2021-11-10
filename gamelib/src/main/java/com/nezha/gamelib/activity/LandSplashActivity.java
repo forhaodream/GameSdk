@@ -3,9 +3,6 @@ package com.nezha.gamelib.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.nezha.gamelib.R;
 
@@ -23,7 +20,6 @@ public class LandSplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         new Handler().postDelayed(this::finish, 2000);
     }
-
 
 }
 

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;

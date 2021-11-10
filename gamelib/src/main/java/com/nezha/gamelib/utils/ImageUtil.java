@@ -26,16 +26,13 @@ public class ImageUtil {
             bitmapConfig = android.graphics.Bitmap.Config.ARGB_8888;
         }
         bitmap = bitmap.copy(bitmapConfig, true);
-
         Canvas canvas = new Canvas(bitmap);
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeWidth(12);
         paint.setTextSize(40);
-
         canvas.drawText(name, 100, 100, paint);
         canvas.drawText(psd, 100, 200, paint);
-
         return bitmap;
     }
 

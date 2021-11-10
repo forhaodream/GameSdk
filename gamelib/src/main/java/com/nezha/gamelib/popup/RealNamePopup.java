@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -40,9 +39,6 @@ import androidx.annotation.NonNull;
 public class RealNamePopup extends CenterPopupView {
 
     private final Context context;
-    private RelativeLayout layout;
-
-    private final boolean isVisible = false;
     private ImageView imageClose;
     private EditText editName;
     private EditText editNumber;
@@ -80,7 +76,6 @@ public class RealNamePopup extends CenterPopupView {
         imageClose = findViewById(R.id.image_close);
         editName = findViewById(R.id.edit_name);
         editNumber = findViewById(R.id.edit_number);
-        btnSure = findViewById(R.id.btn_sure);
         bar = findViewById(R.id.progress_bar);
         if (isShow == 1) {
             imageClose.setVisibility(GONE);
@@ -90,8 +85,7 @@ public class RealNamePopup extends CenterPopupView {
                 dismiss();
             });
         }
-
-        btnSure.setOnClickListener(view -> {
+        findViewById(R.id.btn_sure).setOnClickListener(view -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure))
                 realName();
         });
@@ -126,13 +120,6 @@ public class RealNamePopup extends CenterPopupView {
             object.put("idcard", number);
             object.put("t", t);
             object.put("sign", sign);
-//            String TAG = "1111111";
-//            Log.d(TAG, "realName: " + GameSdk.appId);
-//            Log.d(TAG, "realName: " + (int) SpUtil.get(context, SpUtil.UID, 0));
-//            Log.d(TAG, "realName: " + name);
-//            Log.d(TAG, "realName: " + number);
-//            Log.d(TAG, "realName: " + t);
-//            Log.d(TAG, "realName: " + sign);
         } catch (JSONException e) {
             e.printStackTrace();
         }

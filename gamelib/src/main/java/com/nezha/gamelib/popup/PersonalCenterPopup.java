@@ -5,18 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.animator.PopupAnimator;
-import com.lxj.xpopup.core.BasePopupView;
 import com.lxj.xpopup.core.CenterPopupView;
-import com.lxj.xpopup.core.DrawerPopupView;
-import com.lxj.xpopup.interfaces.SimpleCallback;
-import com.lxj.xpopup.interfaces.XPopupCallback;
-import com.lxj.xpopup.util.XPopupUtils;
 import com.nezha.gamelib.R;
 import com.nezha.gamelib.activity.WebActivity;
 import com.nezha.gamelib.app.GameSdk;
@@ -39,11 +33,6 @@ public class PersonalCenterPopup extends CenterPopupView {
     private final Activity activity;
     private TextView textUserName;
     private TextView textUid;
-    private RelativeLayout bind;
-    private RelativeLayout realName;
-    private RelativeLayout changePasswd;
-    private RelativeLayout serviceCenter;
-    private TextView seleText;
     private final LoginCallback callback;
     private ExitCallback exitCallback;
 
@@ -60,12 +49,7 @@ public class PersonalCenterPopup extends CenterPopupView {
         super.onCreate();
         textUserName = findViewById(R.id.text_user_name);
         textUid = findViewById(R.id.text_uid);
-        realName = findViewById(R.id.layout_real_name);
-        bind = findViewById(R.id.layout_bind);
-        changePasswd = findViewById(R.id.layout_change_passwd);
-        serviceCenter = findViewById(R.id.layout_service_center);
-        seleText = findViewById(R.id.text_sele);
-        seleText.setOnClickListener(v -> {
+        findViewById(R.id.text_sele).setOnClickListener(v -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure)) {
                 exitCallback.exitSuccess("success");
                 LogoWindow.getInstants(activity, callback, exitCallback).Stop();
@@ -75,7 +59,7 @@ public class PersonalCenterPopup extends CenterPopupView {
         });
         textUserName.setText("账号: " + (String) SpUtil.get(activity, SpUtil.NAME, ""));
         textUid.setText("uid: " + (int) SpUtil.get(activity, SpUtil.UID, 0));
-        bind.setOnClickListener(view -> {
+        findViewById(R.id.layout_bind).setOnClickListener(view -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure)) {
                 dismiss();
                 if ((!TextUtils.isEmpty((String) SpUtil.get(activity, SpUtil.MOBILE, "")))) {
@@ -85,7 +69,7 @@ public class PersonalCenterPopup extends CenterPopupView {
                 }
             }
         });
-        realName.setOnClickListener(view -> {
+        findViewById(R.id.layout_real_name).setOnClickListener(view -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure)) {
                 dismiss();
                 if ((int) SpUtil.get(activity, SpUtil.INDULGE, 0) == 1) {
@@ -99,13 +83,13 @@ public class PersonalCenterPopup extends CenterPopupView {
                 }
             }
         });
-        changePasswd.setOnClickListener(view -> {
+        findViewById(R.id.layout_change_passwd).setOnClickListener(view -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure)) {
                 dismiss();
                 new XPopup.Builder(context).autoFocusEditText(false).asCustom(new ChangePopup(context, activity)).show();
             }
         });
-        serviceCenter.setOnClickListener(view -> {
+        findViewById(R.id.layout_service_center).setOnClickListener(view -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_sure)) {
                 Intent intent = new Intent(context, WebActivity.class);
                 intent.putExtra("web_url", GameSdk.serviceUrl);
@@ -113,8 +97,6 @@ public class PersonalCenterPopup extends CenterPopupView {
                 dismiss();
             }
         });
-
-
     }
 
     @Override

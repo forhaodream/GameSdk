@@ -106,11 +106,8 @@ public class LogoWindow {
     private void createView() {
         Log.d(TAG, "onCreate");
         DisplayMetrics dm = new DisplayMetrics();
-
         mActivity.getWindowManager().getDefaultDisplay().getMetrics(dm);
-
         phonePoint = getHeightAndWidth(mActivity);
-
         screenHeigh = dm.heightPixels;
         wm = ((WindowManager) mActivity.getSystemService("window"));
         if (myview == null) {

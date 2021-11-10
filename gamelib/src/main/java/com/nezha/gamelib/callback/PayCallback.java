@@ -6,6 +6,7 @@ package com.nezha.gamelib.callback;
  * desc
  */
 public interface PayCallback {
+
     void paySuccess(String s);
 
     void payFailed(String s);

@@ -15,6 +15,7 @@ import com.nezha.gamelib.callback.ExitCallback;
 import com.nezha.gamelib.callback.LoginCallback;
 import com.nezha.gamelib.callback.PayCallback;
 import com.nezha.gamelib.callback.ReportCallback;
+import com.nezha.gamelib.popup.TipPopup;
 
 import java.lang.reflect.Method;
 
@@ -116,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
     private void anim() {
 //        GameSdk.getInstance().anim(context);
 //        GameSdk.getInstance().heartbeat(this);
-        GameSdk.getInstance().replacePhone(activity, "11111111111");
+//        GameSdk.getInstance().replacePhone(activity, "11111111111");
+        GameSdk.getInstance().showTip(activity);
     }
 
     /**

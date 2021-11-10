@@ -40,17 +40,12 @@ public final class PayPopup extends CenterPopupView {
     private static final String TAG = PayPopup.class.getSimpleName();
 
     private final Context context;
-    private RelativeLayout layout;
-
-    private final boolean isVisible = false;
-
     private TextView textUserName;
     private TextView textUid;
     private final PayCallback payCallback;
     private final Activity activity;
     private LinearLayout aliPay;
     private LinearLayout wxPay;
-    private TextView contactText;
     private TextView priceText;
 
     private final String amount;
@@ -60,9 +55,6 @@ public final class PayPopup extends CenterPopupView {
     private final String role_id;
     private String did;
     private final String ext;
-
-    private int age;
-
     private PayPopup payPopup;
 
     public PayPopup(@NonNull Context context, Activity activity, String amount, String product_name, String attach, String product_id, String role_id, String ext, PayCallback callback) {
@@ -85,19 +77,15 @@ public final class PayPopup extends CenterPopupView {
         payPopup = this;
         textUserName = findViewById(R.id.text_user_name);
         textUid = findViewById(R.id.text_uid);
-        age = (int) SpUtil.get(context, SpUtil.AGE, 0);
-        aliPay = findViewById(R.id.ali_pay);
-        wxPay = findViewById(R.id.wx_pay);
-        contactText = findViewById(R.id.text_contact);
         priceText = findViewById(R.id.popup_pay_price);
         priceText.setText("¥" + Integer.parseInt(amount) / 100);
         textUserName.setText("账号: " + (String) SpUtil.get(activity, SpUtil.NAME, ""));
         textUid.setText("uid: " + (int) SpUtil.get(activity, SpUtil.UID, 0) + "");
-        aliPay.setOnClickListener(view -> {
+        findViewById(R.id.ali_pay).setOnClickListener(view -> {
             dismiss();
             GameSdk.getInstance().createWxOrder(context, activity, amount, product_name, attach, product_id, role_id, ext, payCallback, "1", payPopup);
         });
-        wxPay.setOnClickListener(view -> {
+        findViewById(R.id.wx_pay).setOnClickListener(view -> {
             dismiss();
             GameSdk.getInstance().createWxOrder(context, activity, amount, product_name, attach, product_id, role_id, ext, payCallback, "2", payPopup);
         });
@@ -150,7 +138,7 @@ public final class PayPopup extends CenterPopupView {
         SortedMap<Object, Object> parameters = new TreeMap<Object, Object>();
         parameters.put("game_id", GameSdk.appId);
         parameters.put("t", t);
-        String sign = DeviceUtil.createSign( parameters, GameSdk.appkey);
+        String sign = DeviceUtil.createSign(parameters, GameSdk.appkey);
         JSONObject object = new JSONObject();
         try {
             object.put("game_id", GameSdk.appId);

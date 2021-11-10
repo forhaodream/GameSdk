@@ -6,8 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,13 +13,11 @@ import com.google.gson.Gson;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.animator.PopupAnimator;
 import com.lxj.xpopup.core.BasePopupView;
-import com.lxj.xpopup.impl.LoadingPopupView;
 import com.nezha.gamelib.R;
 import com.nezha.gamelib.app.GameSdk;
 import com.nezha.gamelib.bean.AutoBean;
 import com.nezha.gamelib.callback.LoginCallback;
 import com.nezha.gamelib.network.HttpUtils;
-import com.nezha.gamelib.network.NetCallback;
 import com.nezha.gamelib.network.RequestListener;
 import com.nezha.gamelib.network.Urls;
 import com.nezha.gamelib.utils.ButtonUtils;
@@ -47,15 +43,9 @@ import static com.nezha.gamelib.utils.DeviceUtil.packageName;
 public class LoggingInPopup extends BasePopupView {
     private static final String TAG = LoggingInPopup.class.getSimpleName();
     private final Context context;
-    private RelativeLayout layout;
     private TextView userNameText;
-    private Button selectorBtn;
-
-    private final boolean isVisible = false;
-
     private final LoginCallback loginCallback;
     private final Activity activity;
-    private boolean isOnly = true;
 
     public LoggingInPopup(@NonNull Context context, Activity activity, LoginCallback callback) {
         super(context);
@@ -69,8 +59,7 @@ public class LoggingInPopup extends BasePopupView {
     protected void onCreate() {
         super.onCreate();
         userNameText = findViewById(R.id.text_user_name);
-        selectorBtn = findViewById(R.id.btn_selector);
-        selectorBtn.setOnClickListener(view -> {
+        findViewById(R.id.btn_selector).setOnClickListener(view -> {
             if (!ButtonUtils.isFastDoubleClick(R.id.btn_selector)) {
                 dismiss();
                 SpUtil.put(context, SpUtil.ISSELE, true);
@@ -96,7 +85,6 @@ public class LoggingInPopup extends BasePopupView {
      * 自动注册
      */
     public void autoRegister(Activity activity, LoginCallback callback) {
-
         System.out.print("autoRegister");
         String device = "android";
         String idfa = DeviceUtil.getDeviceId(activity);
