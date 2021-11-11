@@ -1,5 +1,6 @@
 package com.nezha.gamelib.popup;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.CountDownTimer;
@@ -34,7 +35,7 @@ import static com.nezha.gamelib.utils.DeviceUtil.packageName;
 /**
  * Created by CH
  * on 2021/8/26 17:22
- * desc
+ * desc 忘记密码
  */
 public class ForgotPopup extends CenterPopupView {
     private static final String TAG = ForgotPopup.class.getSimpleName();
@@ -221,6 +222,7 @@ public class ForgotPopup extends CenterPopupView {
             btnSendCode.setClickable(true);
         }
 
+        @SuppressLint("SetTextI18n")
         @Override
         public void onTick(long millisUntilFinished) {
             btnSendCode.setClickable(false);

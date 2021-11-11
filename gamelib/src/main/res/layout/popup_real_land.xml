@@ -11,7 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -37,7 +36,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="46dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="22dp"
             android:layout_marginEnd="16dp"
@@ -61,13 +60,14 @@
                 android:layout_marginEnd="20dp"
                 android:background="#F1F2F6"
                 android:hint="请输入真实姓名"
-                android:textColor="#c3c3c3" />
+                android:textColor="#c3c3c3"
+                android:textSize="@dimen/edit_size" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="46dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
@@ -92,7 +92,7 @@
                 android:background="#F1F2F6"
                 android:hint="请输入身份证号"
                 android:textColor="#c3c3c3"
-                android:textSize="13sp" />
+                android:textSize="@dimen/edit_size" />
 
 
         </RelativeLayout>

@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 /**
  * Created by CH
  * on 2021/9/15 13:31
- * desc
+ * desc 退出登录
  */
 public class ExitPopup extends CenterPopupView {
     private final Context context;

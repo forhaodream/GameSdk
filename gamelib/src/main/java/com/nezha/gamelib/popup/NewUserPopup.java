@@ -32,13 +32,11 @@ import static com.nezha.gamelib.utils.DeviceUtil.packageName;
 /**
  * Created by CH
  * on 2021/8/26 17:24
- * desc
+ * desc 新用户注册
  */
 public class NewUserPopup extends CenterPopupView {
     private static final String TAG = NewUserPopup.class.getSimpleName();
-
     private final Context context;
-
     private EditText editPhone;
     private EditText editCode;
     private TextView btnSendCode;

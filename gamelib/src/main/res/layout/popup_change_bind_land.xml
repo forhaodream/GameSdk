@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="330dp"
     android:layout_height="400dp"
     android:layout_gravity="center"
@@ -55,8 +56,9 @@
             android:background="@mipmap/bind_bg"
             android:hint="请输入验证码"
             android:inputType="number"
-            android:paddingStart="20dp"
-            android:textStyle="bold" />
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/text_send_sms"

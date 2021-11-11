@@ -38,7 +38,7 @@ import static com.nezha.gamelib.utils.DeviceUtil.packageName;
 /**
  * Created by CH
  * on 2021/8/26 10:28
- * desc
+ * desc 快速登录
  */
 public class LoggingInPopup extends BasePopupView {
     private static final String TAG = LoggingInPopup.class.getSimpleName();

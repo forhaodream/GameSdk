@@ -69,13 +69,18 @@
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/drawable/shape_gray.xml" value="0.39010416666666664" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/drawable/shape_white.xml" value="0.39010416666666664" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/drawable/shape_yellow.xml" value="0.39010416666666664" />
+        <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/activity_splash.xml" value="0.3682051282051282" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/activity_splash_land.xml" value="0.19375" />
+        <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_change_bind_land.xml" value="0.37395833333333334" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_change_land.xml" value="0.3494791666666667" />
+        <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_exit_land.xml" value="0.22" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_forgot.xml" value="0.3494791666666667" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_forgot_land.xml" value="0.3494791666666667" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_new_user.xml" value="0.33" />
+        <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_new_user_land.xml" value="0.33" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_personal_center_land.xml" value="0.271286231884058" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_real.xml" value="0.37395833333333334" />
+        <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_real_land.xml" value="0.37395833333333334" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_tip.xml" value="0.23958333333333334" />
         <entry key="..\:/workplaceforSVN/GameSdk/gamelib/src/main/res/layout/popup_tip_land.xml" value="0.37395833333333334" />
       </map>

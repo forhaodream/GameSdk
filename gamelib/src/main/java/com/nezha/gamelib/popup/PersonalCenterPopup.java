@@ -108,7 +108,6 @@ public class PersonalCenterPopup extends CenterPopupView {
         return R.layout.popup_personal_center;
     }
 
-
     @Override
     protected int getMaxWidth() {
         return super.getMaxWidth();

@@ -7,10 +7,10 @@
     <application>
         <activity
             android:name=".activity.SplashActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".activity.LandSplashActivity"
-            android:screenOrientation="user" />
+            android:screenOrientation="sensorLandscape" />
         <activity android:name=".activity.WebActivity" />
     </application>
 

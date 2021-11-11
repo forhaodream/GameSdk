@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="6dp">
 
         <ImageView
             android:id="@+id/image_back"
@@ -34,13 +34,14 @@
     <EditText
         android:id="@+id/edit_phone"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/edit_height"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:background="@mipmap/bind_bg"
         android:hint="请输入手机号"
         android:inputType="number"
+        android:textSize="13sp"
         android:paddingStart="20dp"
         android:textColor="#c3c3c3"
         android:textStyle="bold" />
@@ -49,17 +50,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp">
 
         <EditText
             android:id="@+id/edit_code"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/edit_height"
             android:background="@mipmap/bind_bg"
             android:hint="请输入验证码"
             android:inputType="number"
             android:paddingStart="20dp"
+            android:textSize="13sp"
             android:textStyle="bold" />
 
         <TextView
@@ -77,7 +79,7 @@
     <EditText
         android:id="@+id/edit_passwd"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/edit_height"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
@@ -102,7 +104,6 @@
         android:background="@drawable/shape_yellow"
         android:text="确定"
         android:textColor="@android:color/white" />
-
 
 </LinearLayout>
 

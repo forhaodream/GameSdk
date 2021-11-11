@@ -2,6 +2,7 @@ package com.nezha.gamelib.view;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.os.Handler;
@@ -97,7 +98,8 @@ public class LogoWindow {
         activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         phonePoint = getHeightAndWidth(activity);
         screenHeight = dm.heightPixels;
-        wm = ((WindowManager) activity.getSystemService("window"));
+//        wm = (WindowManager) activity.getSystemService("window");
+        wm = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
         if (myview == null) {
             myview = new RelativeLayout(activity);
             LayoutParams layoutParams = new LayoutParams(-2, machSize(100));

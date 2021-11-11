@@ -133,11 +133,6 @@ public class GameSdk implements NZActivity {
      */
     public void login(Activity activity, LoginCallback callback) {
         new XPopup.Builder(activity).dismissOnBackPressed(false).dismissOnTouchOutside(false).autoFocusEditText(false).asCustom(new LoginPopup(activity, activity, callback)).show();
-//        if ((boolean) SpUtil.get(activity, SpUtil.ISSELE, false)) {
-//            new XPopup.Builder(activity).autoFocusEditText(false).asCustom(new LoginPopup(activity, activity, callback)).show();
-//        } else {
-//            new XPopup.Builder(activity).isRequestFocus(false).asCustom(new LoggingInPopup(activity, activity, callback)).show();
-//        }
     }
 
 
@@ -422,14 +417,14 @@ public class GameSdk implements NZActivity {
         SortedMap<Object, Object> parameters = new TreeMap<>();
         parameters.put("game_id", GameSdk.appId);
         parameters.put("uid", uid);
-        parameters.put("role_id", role_id);
-        parameters.put("role_name", role_name);
+        parameters.put("role_id", role_id);// 角色id
+        parameters.put("role_name", role_name);// 角色名称
         parameters.put("server_id", server_id);
         parameters.put("server_name", server_name);
-        parameters.put("diamonds", diamonds);
-        parameters.put("online", online);
-        parameters.put("power", power);
-        parameters.put("level", level);
+        parameters.put("diamonds", diamonds);// 钻石
+        parameters.put("online", online);// 在线时长
+        parameters.put("power", power);// 战力
+        parameters.put("level", level);// 级别
         parameters.put("idfa", idfa);
         parameters.put("t", t);
         String sign = DeviceUtil.createSign(parameters, appkey);
@@ -664,5 +659,12 @@ public class GameSdk implements NZActivity {
 
             }
         });
+    }
+
+    public void getAll(Activity activity) {
+        Map<String, ?> map = SpUtil.getAll(activity);
+        for (int i = 0; i < map.size(); i++) {
+            Log.d(TAG, "getAll: " + map);
+        }
     }
 }

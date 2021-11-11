@@ -127,8 +127,6 @@ public class SpUtil {
     public static boolean saveAccount(Context context, AutoBean bean) {
         AccountListBean accountList = getAccountList(context);
         if (accountList != null) {
-
-
             List<AutoBean> list = accountList.getList();
             boolean needAdd = true;
             for (int i = 0; i < list.size(); i++) {
@@ -143,7 +141,6 @@ public class SpUtil {
                 list.add(bean);
                 accountList.setList(list);
             }
-
         } else {
             accountList = new AccountListBean();
             List<AutoBean> autoBeans = new ArrayList<>();
@@ -159,9 +156,7 @@ public class SpUtil {
     public static AccountListBean getAccountList(Context context) {
         final Gson gson = new Gson();
         final String jsonStr = context.getSharedPreferences(getSpName(), Context.MODE_PRIVATE).getString(SpUtil.ACCOUNT_LIST, "");
-        final Type type = new TypeToken<AccountListBean>() {
-        }.getType();
-        final AccountListBean themeBean = gson.fromJson(jsonStr, type);
-        return themeBean;
+        return gson.fromJson(jsonStr, new TypeToken<AccountListBean>() {
+        }.getType());
     }
 }

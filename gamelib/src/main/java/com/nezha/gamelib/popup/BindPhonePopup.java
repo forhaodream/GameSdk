@@ -124,7 +124,6 @@ public class BindPhonePopup extends CenterPopupView {
                     e.printStackTrace();
                 }
             }
-
             @Override
             public void onFailure(String s) {
                 activity.runOnUiThread(() -> {

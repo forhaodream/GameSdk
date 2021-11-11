@@ -116,9 +116,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void anim() {
         GameSdk.getInstance().anim(activity);
-//        GameSdk.getInstance().heartbeat(this);
-//        GameSdk.getInstance().replacePhone(activity, "11111111111");
-//        GameSdk.getInstance().showTip(activity);
+//        GameSdk.getInstance().getAll(activity);
     }
 
     /**
@@ -127,11 +125,16 @@ public class MainActivity extends AppCompatActivity {
     private void login() {
         GameSdk.getInstance().login(activity, new LoginCallback() {
             @Override
-            public void loginSuccess(AutoBean bean, String msg) {}
+            public void loginSuccess(AutoBean bean, String msg) {
+            }
+
             @Override
-            public void loginFailed(String msg) {}
+            public void loginFailed(String msg) {
+            }
+
             @Override
-            public void logOut(String s) {}
+            public void logOut(String s) {
+            }
         });
     }
 
@@ -143,12 +146,17 @@ public class MainActivity extends AppCompatActivity {
                 , "产品名称", "产品id"
                 , "角色id", "附加信息", new PayCallback() {
                     @Override
-                    public void paySuccess(String s) {}
+                    public void paySuccess(String s) {
+                    }
+
                     @Override
-                    public void payFailed(String s) {}
+                    public void payFailed(String s) {
+                    }
+
                     @Override
-                    public void payCancel(String s) {}
-        });
+                    public void payCancel(String s) {
+                    }
+                });
     }
 
     /**
@@ -157,9 +165,12 @@ public class MainActivity extends AppCompatActivity {
     private void exit() {
         GameSdk.getInstance().exitLogin(activity, new ExitCallback() {
             @Override
-            public void exitSuccess(String s) {}
+            public void exitSuccess(String s) {
+            }
+
             @Override
-            public void exitCancel(String s) {}
+            public void exitCancel(String s) {
+            }
         });
 
     }
@@ -177,10 +188,13 @@ public class MainActivity extends AppCompatActivity {
                 "server_id", "diamonds", "online", "power", "level"
                 , activity, new ReportCallback() {
                     @Override
-                    public void reportSuccess(String msg) {}
+                    public void reportSuccess(String msg) {
+                    }
+
                     @Override
-                    public void reportFailed(String msg) {}
-        });
+                    public void reportFailed(String msg) {
+                    }
+                });
     }
 
 
