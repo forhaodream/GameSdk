@@ -3,7 +3,7 @@ package com.nezha.gamelib.callback;
 /**
  * Created by CH
  * on 2021/8/26 17:02
- * desc
+ * desc 退出登录接口
  */
 public interface ExitCallback {
 

@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void anim() {
         GameSdk.getInstance().anim(activity);
+
 //        GameSdk.getInstance().getAll(activity);
     }
 

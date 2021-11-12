@@ -44,6 +44,7 @@ import com.nezha.gamelib.sqlite.DBHelper;
 import com.nezha.gamelib.utils.DeviceUtil;
 import com.nezha.gamelib.utils.SpUtil;
 import com.nezha.gamelib.view.LogoWindow;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -140,6 +141,7 @@ public class GameSdk implements NZActivity {
     public void onCreate(Activity activity, LoginCallback loginCallback, ExitCallback exitCallback) {
         LogoWindow.getInstants(activity, loginCallback, exitCallback).start();
         GameSdk.getInstance().getInfo(activity);
+        CrashReport.initCrashReport(activity.getApplicationContext(), "dfacea3c0b", false);
         dbHelper = new DBHelper(activity, DB_NAME, null, 1);
         db = dbHelper.getWritableDatabase();// 打开数据库
     }
