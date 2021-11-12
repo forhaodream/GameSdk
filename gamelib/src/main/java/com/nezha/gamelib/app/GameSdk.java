@@ -141,7 +141,6 @@ public class GameSdk implements NZActivity {
     public void onCreate(Activity activity, LoginCallback loginCallback, ExitCallback exitCallback) {
         LogoWindow.getInstants(activity, loginCallback, exitCallback).start();
         GameSdk.getInstance().getInfo(activity);
-        CrashReport.initCrashReport(activity.getApplicationContext(), "dfacea3c0b", false);
         dbHelper = new DBHelper(activity, DB_NAME, null, 1);
         db = dbHelper.getWritableDatabase();// 打开数据库
     }
@@ -516,7 +515,7 @@ public class GameSdk implements NZActivity {
         String t = String.valueOf(System.currentTimeMillis() / 1000);
         String uid = String.valueOf((int) SpUtil.get(activity, SpUtil.UID, 0));
         long day_total_time = System.currentTimeMillis() / 1000 - inTime;
-        SortedMap<Object, Object> parameters = new TreeMap<Object, Object>();
+        SortedMap<Object, Object> parameters = new TreeMap<>();
         parameters.put("uid", uid);
         parameters.put("idfa", idfa);
         parameters.put("udid", idfa);

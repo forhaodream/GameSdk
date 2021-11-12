@@ -150,7 +150,7 @@ public class DeviceUtil {
     }
 
     public static String getIMIEStatus(Activity context) {
-        TelephonyManager tm = (TelephonyManager) context    .getSystemService(Context.TELEPHONY_SERVICE);
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             return "user denied permission";
         }

@@ -41,7 +41,6 @@ public class NewUserPopup extends CenterPopupView {
     private EditText editCode;
     private TextView btnSendCode;
     private EditText editPasswd;
-
     private final Activity activity;
     private TimeCount time;
 
@@ -61,6 +60,7 @@ public class NewUserPopup extends CenterPopupView {
     @Override
     protected void onCreate() {
         super.onCreate();
+        btnSendCode = findViewById(R.id.btn_send_code);
         editPhone = findViewById(R.id.edit_phone);
         editCode = findViewById(R.id.edit_code);
         editPasswd = findViewById(R.id.edit_passwd);
